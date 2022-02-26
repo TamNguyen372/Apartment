@@ -1,0 +1,194 @@
+<app-layout>
+    <div class="container ">
+        <div class="row p-2">
+            <h3 class="py-2">Quản lý tài khoản</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">Thêm +</button>
+                </div>
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm Căn hộ:</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="container">
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Mã khu( <span style="color: red;">*</span> )</label></div>
+                                        <div class="col-9"><input type="text" value="ANKHANGTD" disabled class="w-100" id="title"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Block( <span style="color: red;">*</span> )</label></div>
+                                        <div class="col-9"><select class="w-100" aria-label="Default select example">
+                                        <option value="1">A</option>
+                                        <option value="2">B</option>
+                                        <option value="2">C</option>
+                                    </select></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Số tầng( <span style="color: red;">*</span> )</label></div>
+                                        <div class="col-9">
+                                            <select class="w-100" aria-label="Default select example">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Số phòng 1 tầng( <span style="color: red;">*</span> )</label></div>
+                                        <div class="col-9"><input type="text" value="26" disabled class="w-100" id="title"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"> <label for="formGroupExampleInput" class="form-label">Diện tích( <span style="color: red;">*</span> )</label></div>
+                                        <div class="col-9"><input type="text" class="w-100"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Loại căn hộ( <span style="color: red;">*</span> )</label></div>
+                                        <div class="col-9"><select class="w-100" aria-label="Default select example">
+                                        <option value="1">Bình DÂn </option>
+                                        <option value="2">Cao Cấp</option>
+                                        <option value="2">VIP</option>
+                                    </select></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary">Thêm mới</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+
+
+            </div>
+            <div class="row p-2">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Access code</th>
+                                <th scope="col">Block</th>
+                                <th scope="col">Số Phòng</th>
+                                <th scope="col">Diện tích</th>
+                                <th scope="col">Loại căn hộ</th>
+                                <th scope="col">QR</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let qlcanho of qlcanho" value="qlcanho">
+                                <th scope="row ">1</th>
+                                <td>{{qlcanho.Access_Code}}</td>
+                                <td>{{qlcanho.idBlock}}</td>
+                                <td>{{qlcanho.SoPhong}}</td>
+                                <td>{{qlcanho.DienTich}}</td>
+                                <td>{{qlcanho.MaLoai}}</td>
+                                <td><a href="#">{{qlcanho.LinkQR}}</a></td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- modal-deit -->
+                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa căn hộ</h5>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="container">
+                                        <div class="row p-2">
+                                            <div class="col-3"><label for="formGroupExampleInput" class="form-label">Mã khu( <span style="color: red;">*</span> )</label></div>
+                                            <div class="col-9"><input type="text" value="ANKHANG01" disabled class="w-100" id="title"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-3"><label for="formGroupExampleInput" class="form-label">Block( <span style="color: red;">*</span> )</label></div>
+                                            <div class="col-9"><select class="w-100" aria-label="Default select example">
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                                <option value="2">C</option>
+                            </select></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-3"><label for="formGroupExampleInput" class="form-label">Số phòng( <span style="color: red;">*</span> )</label></div>
+                                            <div class="col-9"><input type="text" class="w-100"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-3"> <label for="formGroupExampleInput" class="form-label">Diện tích( <span style="color: red;">*</span> )</label></div>
+                                            <div class="col-9"><input type="text" class="w-100"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-3"><label for="formGroupExampleInput" class="form-label">Loại căn hộ( <span style="color: red;">*</span> )</label></div>
+                                            <div class="col-9"><select class="w-100" aria-label="Default select example">
+                                <option value="1">Bình dân </option>
+                                <option value="2">Cao cấp</option>
+                                <option value="2">VIP</option>
+                            </select></div>
+                                        </div>
+
+                                        <div class="row p-2">
+                                            <div class="col-3"><label for="formGroupExampleInput" class="form-label">Access code( <span style="color: red;">*</span> )</label></div>
+                                            <div class="col-9"><input type="text" value="ANKHANG01" disabled class="w-100" id="title"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between p-4">
+                                    <button type="button" class="btn btn-danger  px-5" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="button" class="btn btn-info  px-5">Cập nhật</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal-delete -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <div class="modal-body text-center">
+                                    <p>Bạn muốn xóa căn hộ có mã :</p>
+                                    <h6>ANKHANGTDA0101</h6>
+
+                                    <hr class="mb-0">
+                                </div>
+                                <div class="p-3 d-flex justify-content-between">
+                                    <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                    <button type="button" class="btn btn-secondary right">Có</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</app-layout>

@@ -1,0 +1,134 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý thông báo</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm +</button>
+
+                    <!-- Modal Add -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title fw-bold" id="exampleModalLabel">Thêm loại thông báo</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="title" class=" col-form-label fw-bold">Mã loại :</label>
+                                        <div class="">
+                                            <input type="text " value="AHDA001" disabled class="w-100 fw-bold" id="title">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 ">
+                                        <label for="title" class=" col-form-label fw-bold">Tên thông báo:</label>
+                                        <div class="">
+                                            <input type="text" class="w-100 fw-bold" placeholder="thông báo chi phí" id="title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center p-3">
+                                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="row">
+                <!-- table -->
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Mã Loại</th>
+                                <th scope="col">Tên Loại</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let lthongbao of Loaithonbao" value="lthongbao">
+                                <th scope="row ">1</th>
+                                <td>{{lthongbao.MaLoai}}</td>
+                                <td>{{lthongbao.TenLoai}}</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- edit -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title fw-bold" id="editModalLabel"> Sửa loại thông báo</h6>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3 row">
+                                    <label for="title" class=" col-form-label fw-bold">Mã Loại </label>
+                                    <div class="">
+                                        <input type="text" value="TBP" disabled class="w-100  fw-bold" id="title">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="title" class=" col-form-label fw-bold">Tên loại</label>
+                                    <div class="">
+                                        <input type="text " class="w-100 fw-bold" id="title" placeholder="thông báo phí">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary">Xác nhận</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal Delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <p>Bạn có chắc muốn xóa:</p>
+                                <h6>TDB</h6>
+                                <hr>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between">
+                                <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                <button type="button" class="btn btn-secondary right">Có</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+
+                <a href="#">&raquo;</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</app-layout>

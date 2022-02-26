@@ -1,0 +1,17 @@
+<app-auth-layout>
+
+    <h3 class="card-title text-center mb-4">Đăng nhập</h3>
+    <div class="card-text">
+        <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" class="my-4 mx-3">
+
+            <app-input type='text' controlName='TenTaiKhoan' [controller]='loginForm.controls.TenTaiKhoan' [formGroup]='loginForm' label='Tên tài khoản' errorMgs1='' errorMgs2='Tài khoản có độ dài từ 3-20 ký tự' errorMgs3='Tài khoản có độ dài từ 3-20 ký tự'></app-input>
+            <show-hide-password size="sm" id="eye" class="cainayne" btnStyle="white">
+                <app-input type='password' class="hehe" controlName='MatKhau' [controller]='loginForm.controls.MatKhau' [formGroup]='loginForm' label='Mật khẩu' errorMgs1='Mật khẩu không được trống' errorMgs2='mật khẩu có độ dài từ 8-16 ký tự' errorMgs3='mật khẩu có độ dài từ 8-16 ký tự'></app-input>
+            </show-hide-password>
+
+            <button type="submit" [disabled]="this.loginForm.invalid" class="btn btn-primary btn-block my-4">Đăng nhập</button><br>
+
+        </form>
+    </div>
+
+</app-auth-layout>

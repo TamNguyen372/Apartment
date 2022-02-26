@@ -1,0 +1,181 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý chung cư</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">Thêm +</button>
+                </div>
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm Chung cu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="container">
+                                    <div class="row p-2">
+                                        <div class="col-4"><label for="formGroupExampleInput" class="form-label">Mã khu(<span style="color: red;" >*</span>)</label></div>
+                                        <div class="col-8"><input type="text" value="ANKHANG01" disabled class="form-control" id="title"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-4"><label for="formGroupExampleInput" class="form-label">Tên khu(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-8"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-4"> <label for="formGroupExampleInput" class="form-label">Địa chỉ(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-8"> <input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-4"><label for="formGroupExampleInput" class="form-label">Số lượng block</label></div>
+                                        <div class="col-8"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-4"><label for="formGroupExampleInput" class="form-label">số lượng tầng(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-8"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-4"> <label for="formGroupExampleInput" class="form-label">số lượng phòng(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-8"> <input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-4"> <label for="formGroupExampleInput" class="form-label">chủ đầu tư(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-8"> <input type="text" class="form-control"></div>
+                                    </div>
+                                </div>
+                                <div class="p-3 text-center">
+                                    <button type="button" class="btn btn-primary">Thêm mới</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-4">
+                    <label for="filter">Lọc:</label>
+                    <select class="select">
+                                    <option selected >ANKHANG01</option>
+                                    <option value="1">ANKHANG02</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">Mã Khu</th>
+                                <th scope="col">Tên khu chung cư</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Số lượng block</th>
+                                <th scope="col">Số lượng tầng</th>
+                                <th scope="col">Số lượng phòng</th>
+                                <th scope="col">chủ đầu tư</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let chungcu of Chungcu" value="chungcu">
+
+                                <th scope="row ">{{chungcu.MaKhu}}</th>
+                                <td>{{chungcu.TenChungCu}}</td>
+                                <td>{{chungcu.DiaChi}}</td>
+                                <td>{{chungcu.SLBlock}}</td>
+                                <td>{{chungcu.SLTang}}</td>
+                                <td>{{chungcu.SLPhong}}</td>
+                                <td>{{chungcu.ChuNhaDauTu}}</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#edetModal">Edit</a> /
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="modal fade" id="edetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">chỉnh su Chung cu</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="container">
+                                        <div class="row p-2">
+                                            <div class="col-4"><label for="formGroupExampleInput" class="form-label">Mã khu(<span style="color: red;" >*</span>)</label></div>
+                                            <div class="col-8"><input type="text" value="ANKHANG01" disabled class="form-control" id="title"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"><label for="formGroupExampleInput" class="form-label">Tên khu(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8"><input type="text" class="form-control"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"> <label for="formGroupExampleInput" class="form-label">Địa chỉ(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8"> <input type="text" class="form-control"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"><label for="formGroupExampleInput" class="form-label">Số lượng block</label></div>
+                                            <div class="col-8"><input type="text" class="form-control"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"><label for="formGroupExampleInput" class="form-label">số lượng tầng(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8"><input type="text" class="form-control"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"> <label for="formGroupExampleInput" class="form-label">số lượng phòng(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8"> <input type="text" class="form-control"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"> <label for="formGroupExampleInput" class="form-label">chủ đầu tư(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8"> <input type="text" class="form-control"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between p-4">
+                                        <button type="button" class="btn btn-danger  px-5" data-bs-dismiss="modal">Hủy</button>
+                                        <button type="button" class="btn btn-info  px-5">Cập nhật</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Bạn muốn xóa chung cư</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <p class="text-center" style="font-size: 20px; font-weight: 400;">ANKHANG01
+                                    </p>
+                                </div>
+                                <div class="p-3 d-flex justify-content-between">
+                                    <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                    <button type="button" class="btn btn-secondary right">Có</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</app-layout>

@@ -1,0 +1,158 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý phí nước</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm +</button>
+
+                    <!-- Modal Add -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title fw-bold" id="exampleModalLabel">Thêm định giá mức mới</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-4 col-form-label fw-bold"> Định mức (<span class="text-danger fw-bold">*</span>):</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="w-100" id="title">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label for="title" class="fw-bold"> m3-</label>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="w-100" id="title">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label for="title" class="fw-bold"> m3</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-3 col-form-label fw-bold"> Đơn giá(<span class="text-danger fw-bold">*</span>):</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="w-100" id="title">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-3 col-form-label fw-bold"> Loại: (<span class="text-danger fw-bold">*</span>):</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" value="Phí nước" disabled class="w-100 fw-bold" id="title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center p-2">
+                                    <button type="submit" class="btn btn-primary m-auto">Thêm mới</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="row">
+                <!-- table -->
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">ID PNước</th>
+                                <th scope="col">Định Mức(m3)</th>
+                                <th scope="col">Đơn Giá (VNĐ)</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let phinuoc of phinuoc" value="phinuoc">
+                                <th scope="row ">{{phinuoc.IdNuoc}}</th>
+                                <td>{{phinuoc.DinhMuc}}</td>
+                                <td>{{phinuoc.DonGia}}</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- modal edit -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title fw-bold" id="editModalLabel">Chỉnh sửa định mức nước:</h6>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3 row">
+                                    <label for="title" class="col-sm-4 col-form-label fw-bold">Định mức (<span class="text-danger fw-bold">*</span>):</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="w-100" id="title">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="title" class="fw-bold"> m3 (<span class="text-danger">*</span>)-</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="w-100" id="title">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="title" class="fw-bold"> m3 (<span class="text-danger">*</span>)</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="title" class="col-sm-4 col-form-label fw-bold"> Đơn giá(<span class="text-danger fw-bold">*</span>):</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="w-100" id="title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+                                <button type="submit" class="btn btn-primary ms-auto">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- modal delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+
+                            <div class="modal-body text-center">
+                                <p>Bạn muốn xóa định mức nước:</p>
+                                <h6>10m3 - 20m3</h6>
+
+                                <hr class="mb-0">
+                            </div>
+                            <div class="p-3 d-flex justify-content-between">
+                                <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                <button type="button" class="btn btn-secondary right">Có</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</app-layout>

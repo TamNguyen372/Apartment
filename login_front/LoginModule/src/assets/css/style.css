@@ -1,0 +1,210 @@
+.ht-100 {
+    height: 100vh;
+}
+
+.bg-darkblue {
+    background-color: #363a53;
+}
+
+.bg-gray {
+    background-color: #eaeaec;
+}
+
+.outline-none:focus {
+    outline: none;
+    background-color: white;
+}
+
+.select {
+    width: 80%;
+    height: 30px;
+    padding-left: 1rem;
+}
+
+.h-30 {
+    height: 30px;
+}
+
+.nav .nav-link {
+    color: gray;
+}
+
+.nav .nav-link:hover {
+    color: white;
+}
+
+.sub-menu li {
+    list-style: none;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.sub-menu .dropdown-item {
+    color: gray;
+}
+
+.sub-menu .dropdown-item:hover {
+    color: white;
+    background: none;
+}
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    padding: 0 2rem;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+
+/* login ------------------------------------------------------------
+ */
+
+.wrap_login {
+    background-color: #17a2b8;
+    height: 100vh;
+}
+
+#login .container #login-row #login-column #login-box {
+    margin-top: 150px;
+    max-width: 600px;
+    height: auto;
+    background-color: #EAEAEA;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+
+.input-form {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid #17a2b8;
+    appearance: none;
+    outline: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+#err_1 {
+    position: absolute;
+    top: 26%;
+    right: 7%;
+    font-weight: bold;
+}
+
+#err_2 {
+    position: absolute;
+    top: 25px;
+    right: 0px;
+}
+
+#eye button {
+    position: absolute;
+    bottom: 30%;
+    right: 0;
+}
+
+.hehe input {
+    display: block;
+    width: 140%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid #17a2b8;
+    border-radius: 0;
+    appearance: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.hehe small {
+    right: -3% !important;
+}
+
+
+/* .cainayne .hehe input {
+    outline: none !important;
+} */
+
+
+/* slides Show ------------------------------------------------------------
+ */
+
+.dot {
+    border: 0;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: gray;
+    border-radius: 50%;
+    transition: background-color 0.6s ease;
+}
+
+.carousel-indicatorss {
+    position: absolute;
+    right: 0px;
+    bottom: -25px;
+    left: 0px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding-left: 0px;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.modal-lg {
+    width: 720px !important;
+}
+
+hr {
+    color: black !important;
+    height: 3px !important;
+    opacity: 100;
+}
+
+.tbao option {
+    font-weight: 700;
+}
+
+
+/* Fading animation */

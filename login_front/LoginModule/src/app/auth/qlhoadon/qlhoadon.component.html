@@ -1,0 +1,279 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý hoá đơn</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm +</button>
+
+                    <!-- Modal Add -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Thêm hoá đơn</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class=" row">
+                                        <label for="role" class="col-sm-2 col-form-label">BLOCK:</label>
+                                        <div class="col-sm-2">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>A</option>
+                                                <option value="1">B</option>
+                                                <option value="2">C</option>
+                                                <option value="3">D</option>
+                                              </select>
+                                        </div>
+                                        <label for="role" class="col-sm-2 col-form-label">Tầng:</label>
+                                        <div class="col-sm-2">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                              </select>
+                                        </div>
+                                        <label for="role" class="col-sm-2 col-form-label">Căn hộ:</label>
+                                        <div class="col-sm-2">
+                                            <select class="form-select px-0" aria-label="Default select example">
+                                                <option selected>102</option>
+                                                <option value="1">103</option>
+                                                <option value="2">104</option>
+                                                <option value="3">105</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="role" class="col-sm-4 col-form-label">Chủ căn hộ:</label>
+                                        <label for="role" class="col-sm-4 col-form-label">Nguyễn văn công</label>
+                                    </div>
+                                    <div class=" row">
+                                        <label for="role" class="col-sm-4 col-form-label">Phí nước:</label>
+                                        <label for="role" class="col-sm-4 col-form-label">300.000 Đ</label>
+
+                                    </div>
+                                    <div class="mb-1 row ps-5">
+                                        <label for="role" class="  ps-3 pe-0 col-sm-3 col-form-label ">Chỉ số cũ:</label>
+                                        <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                    </div>
+                                    <div class="mb-1 row ps-5">
+                                        <label for="role" class=" ps-3 pe-0 col-sm-3 col-form-label">Chỉ số mới:</label>
+                                        <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                    </div>
+                                    <div class="mb-1 row">
+                                        <label for="role" class="col-sm-4 col-form-label">Phí xe:</label>
+                                        <label for="role" class="col-sm-4 col-form-label">900.000 Đ</label>
+                                    </div>
+                                    <div class="mb-1 row ps-5">
+                                        <label for="role" class="  ps-3 pe-0 col-sm-3 col-form-label ">xe máy</label>
+                                        <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                    </div>
+                                    <div class="mb-1 row ps-5">
+                                        <label for="role" class=" ps-3 pe-0 col-sm-3 col-form-label">xe oto</label>
+                                        <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                    </div>
+                                    <div class="mb-1 row">
+                                        <label for="role" class="col-sm-4 col-form-label">Phí quản lý:</label>
+                                        <label for="role" class="col-sm-4 col-form-label">90.000 Đ</label>
+                                    </div>
+                                    <div class="mb-1 row">
+                                        <label for="role" class="col-sm-4 col-form-label">Tình trạng:</label>
+                                        <div class="col-sm-6">
+                                            <select class=" form-select px-0" aria-label="Default select example">
+                                                <option selected>Đã thanh toán </option>
+                                                <option value="1">Chưa thanh toán</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center p-2">
+                                    <button type="submit" class="btn btn-primary m-auto">Thêm mới</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group mb-3">
+                        <label class="me-2 pt-1" for="">Lọc:</label>
+                        <input type="text" class="form-control h-30" name="daterange">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">Mã hoá đơn</th>
+                                <th scope="col">Căn hộ</th>
+                                <th scope="col">Block</th>
+
+                                <th scope="col">Người thanh toán</th>
+                                <th scope="col">Total (đồng)</th>
+                                <th scope="col">Ngay thanh toán</th>
+                                <th scope="col">Tình trạng</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let qlhoadon of qlhoadon" value="qlhoadon">
+                                <th scope="row ">{{qlhoadon.MaHoaDon}}</th>
+                                <td>301</td>
+                                <td>A</td>
+                                <td>Nguyễn văn A</td>
+                                <td>{{qlhoadon.TongThanhToan}}</td>
+                                <td>{{qlhoadon.NgayThanhToan}}</td>
+                                <td>đã thanh toán</td>
+
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
+
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Modal Edit -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Thay đổi</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form class="modal-body">
+                                <div class=" row ">
+                                    <label for="user" class="col-sm-3 col-form-label">Mã hoá đơn</label>
+                                    <div class="col-sm-2">
+                                        MH001
+                                    </div>
+                                    <label for="user" class="col-sm-2 col-form-label">Ngày</label>
+                                    <div class="col-sm-5">
+                                        <input type="date" value="">
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <label for="user" class="col-sm-4 col-form-label">Căn hộ</label>
+                                    <div class="col-sm-8">
+                                        301
+                                    </div>
+
+                                </div>
+                                <div class=" row">
+                                    <label for="user" class="col-sm-4 col-form-label">Người thanh toán</label>
+                                    <div class="col-sm-8">
+                                        Nguyen Van A
+                                    </div>
+
+                                </div>
+                                <div class=" row">
+                                    <label for="user" class="col-sm-4 col-form-label">Phí nước:</label>
+                                    <div class="col-sm-8">
+                                        300.000đ
+                                    </div>
+
+                                </div>
+                                <div class="mb-1 row ps-5">
+                                    <label for="role" class="  ps-3 pe-0 col-sm-3 col-form-label ">Chỉ số cũ:</label>
+                                    <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                </div>
+                                <div class="mb-1 row ps-5">
+                                    <label for="role" class=" ps-3 pe-0 col-sm-3 col-form-label">Chỉ số mới:</label>
+                                    <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                </div>
+                                <div class=" row">
+                                    <label for="user" class="col-sm-4 ps-5 col-form-label">Tiêu thụ</label>
+                                    <div class="col-sm-8">
+                                        25
+                                    </div>
+
+                                </div>
+                                <div class=" row">
+                                    <label for="user" class="col-sm-4 col-form-label">Phí xe</label>
+                                    <div class="col-sm-8">
+                                        490.000đ
+                                    </div>
+
+                                </div>
+                                <div class="mb-1 row ps-5">
+                                    <label for="role" class="  ps-3 pe-0 col-sm-3 col-form-label ">xe máy</label>
+                                    <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                </div>
+                                <div class="mb-1 row ps-5">
+                                    <label for="role" class=" ps-3 pe-0 col-sm-3 col-form-label">xe oto</label>
+                                    <div class="col-sm-2 ps-2"><input type="text" class="form-control" id="exampleFormControlInput1"></div>
+                                </div>
+                                <div class=" row">
+                                    <label for="user" class="col-sm-4 col-form-label">Phí quản lý</label>
+                                    <div class="col-sm-8">
+                                        90.000đ
+                                    </div>
+
+                                    <div class=" row">
+                                        <label for="user" class="col-sm-4  col-form-label">Tình trạng<i></i></label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control">
+                                                <option selected >Đã thanh toán</option>
+                                                <option value="1">Chưa thanh toán</option>
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="text-center p-4">
+                                    <button type="submit" class="btn btn-primary m-auto">Cập Nhật</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form class="modal-content">
+                            <div class="modal-header text-center">
+                                <h5 class="modal-title" id="deleteModalLabel">Bạn có muốn xóa tên</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                binh dan
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Không</button>
+                                <button type="submit" class="btn btn-primary ms-auto">Có</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</app-layout>

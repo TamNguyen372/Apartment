@@ -1,0 +1,269 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý thanh toán</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm +</button>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Thêm tài khoản</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="container">
+                                    <div class="row p-2">
+                                        <div class="col-6">
+                                            <label for="" class="form-lable">Chọn loại phường thức: (<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Tiền mặt :
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    thẻ ngân hàng:
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-2">
+                                        <div class="col-3">
+                                            <label for="" class="form-lable">Số điện thoại (<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="password" class="form-control" id="exampleFormControlInput1">
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-2">
+                                        <div class="col-3">
+                                            <label for="" class="form-lable">Tên chủ tài khoản (<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="password" class="form-control" disabled class="form-control" id="title">
+                                        </div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3">
+                                            <label for="" class="form-lable">Số Tài khoản(<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="email" class="form-control" disabled class="form-control" id="title">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row p-2">
+                                        <div class="col-3">
+                                            <label for="" class="form-lable"> Nơi đóng tiền (<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="email" class="form-control" id="exampleFormControlInput1">
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-2">
+                                        <div class="col-3">
+                                            <label for="" class="form-lable">Địa chỉ (<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="email" class="form-control" id="exampleFormControlInput1">
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-2">
+                                        <div class="col-3">
+                                            <label for="" class="form-lable">Giờ làm việc (<span style="color: red;">*</span>)</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="email" class="form-control" id="exampleFormControlInput1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary">Thêm mới</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label for="filter">Lọc:</label>
+                    <select class="select">
+                        <option selected>ANKHANG01</option>
+                        <option value="1">ANKHANG02</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">SĐT</th>
+                                <th scope="col">Số TK</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Nơi đóng tiền</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Giờ làm việc</th>
+                                <th scope="col">Phương thức</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ptthanhtoan of ptthanhtoan" value="ptthanhtoan">
+                                <th scope="row ">{{ptthanhtoan.idPTTT}}</th>
+                                <td>{{ptthanhtoan.SDT}}</td>
+                                <td>{{ptthanhtoan.TenChuTK}}</td>
+                                <td></td>
+                                <td>{{ptthanhtoan.NoiDongTien}}</td>
+                                <td>{{ptthanhtoan.ChiNhanh}}</td>
+                                <td>{{ptthanhtoan.GioLamViec}}</td>
+                                <td>Tiền mặt</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#editModal"> Edit</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- modal-delete -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <div class="modal-body text-center">
+                                    <p>Bạn muốn xóa thanh toán có tên:</p>
+                                    <h6>0396236458</h6>
+
+                                    <hr class="mb-0">
+                                </div>
+                                <div class="p-3 d-flex justify-content-between">
+                                    <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                    <button type="button" class="btn btn-secondary right">Có</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center">Chỉnh sửa thanh toán</h5>
+
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="container">
+                                        <div class="row p-2">
+                                            <div class="col-6">
+                                                <label for="" class="form-lable">Chọn loại phường thức: (<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                Tiền mặt :
+                                                            </label>
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-check">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                thẻ ngân hàng:
+                                                            </label>
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-2">
+                                            <div class="col-3">
+                                                <label for="" class="form-lable">Số điện thoại (<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="password" class="form-control" id="exampleFormControlInput1">
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-2">
+                                            <div class="col-3">
+                                                <label for="" class="form-lable">Tên chủ tài khoản (<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="password" class="form-control" disabled class="form-control" id="title">
+                                            </div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-3">
+                                                <label for="" class="form-lable">Số Tài khoản(<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="email" class="form-control" disabled class="form-control" id="title">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row p-2">
+                                            <div class="col-3">
+                                                <label for="" class="form-lable"> Nơi đóng tiền (<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="email" class="form-control" id="exampleFormControlInput1">
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-2">
+                                            <div class="col-3">
+                                                <label for="" class="form-lable">Địa chỉ (<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="email" class="form-control" id="exampleFormControlInput1">
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-2">
+                                            <div class="col-3">
+                                                <label for="" class="form-lable">Giờ làm việc (<span style="color: red;">*</span>)</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="email" class="form-control" id="exampleFormControlInput1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between p-4">
+                                    <button type="button" class="btn btn-danger  px-5" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="button" class="btn btn-info  px-5">Cập nhật</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</app-layout>

@@ -1,0 +1,177 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý căn hộ</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm +</button>
+
+                    <!-- Modal Add -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title fw-bold" id="exampleModalLabel">Thêm mới chỉ số nước</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3 row ">
+                                        <label for="title" class="col-sm-3 col-form-label fw-bold">Block:</label>
+                                        <div class="col-sm-3">
+                                            <select class="w-100 fw-bold" aria-label="Default select example">
+                                                <option selected>A</option>
+                                                <option value="1">B</option>
+                                                <option value="2">X</option>
+                                                <option value="3">D</option>
+                                              </select>
+                                        </div>
+                                        <label for="title" class="col-sm-3 col-form-label fw-bold">Tầng:</label>
+                                        <div class="col-sm-3">
+                                            <select class="w-100 fw-bold" aria-label="Default select example">
+                                                <option selected>1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-3 fw-bold col-form-label">Mã căn hộ:</label>
+                                        <div class="col-sm-9">
+                                            <select class="w-100 fw-bold" aria-label="Default select example">
+                                                <option selected>ANKHANGTDA001</option>
+                                                <option value="1">ANKHANGTDA002</option>
+                                                <option value="2">ANKHANGTDA003</option>
+                                                <option value="3">ANKHANGTDA004</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-5 fw-bold col-form-label">Chỉ số nước cũ:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="w-100" id="title">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-5 fw-bold col-form-label">Chỉ số nước mới:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="w-100" id="title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center p-2">
+                                    <button type="submit" class="btn btn-primary m-auto">Thêm mới</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">Access_Code</th>
+                                <th scope="col">Chỉ số nước cũ</th>
+                                <th scope="col">Chỉ số nước mới</th>
+                                <th scope="col">Tiêu tụ</th>
+                                <th scope="col">Ngày cập nhật</th>
+                                <th scope="col">thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let csnuoc of csnuoc" value="csnuoc">
+                                <th scope="row ">{{csnuoc.Access_Code}}</th>
+                                <td>{{csnuoc.ChiSoNuocCu}}</td>
+                                <td>{{csnuoc.ChiSoNuocMoi}}</td>
+                                <td></td>
+                                <td>{{csnuoc.NgayCapNhat}}</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- modal-edit -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title fw-bold" id="editModalLabel">Chỉnh sửa chỉ số</h6>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3 row">
+                                    <label for="title" class=" fw-bold col-sm-3 col-form-label">Mã căn hộ:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="ANKHANG01" disabled class="w-100 fw-bold" id="title">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="title" class=" fw-bold col-sm-5 col-form-label">Chỉ số nước cũ:</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="w-100" id="title">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="title" class="col-sm-5 fw-bold col-form-label">Chỉ số nước mới:</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="w-100" id="title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary">Xác Nhận</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal Delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <p>Bạn muốn xóa chỉ số nước của:</p>
+                                <h6>ANKHANGTDA001 </h6>
+
+                                <hr class="mb-0">
+                            </div>
+                            <div class="p-3 d-flex justify-content-between">
+                                <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                <button type="button" class="btn btn-secondary right">Có</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</app-layout>

@@ -1,0 +1,224 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý quảng cáo</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm +</button>
+
+                    <!-- Modal Add -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <form class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Thêm mới quảng cáo</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3 row">
+                                        <label for="title" class="col-sm-3 col-form-label">Tiêu đề quảng cáo (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="title">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="content" class="col-sm-3 col-form-label">Nội dung (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="content">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="side-content" class="col-sm-3 col-form-label">Nội dung phụ (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="side-content">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="name" class="col-sm-3 col-form-label">Tên cửa hàng (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="image" class="col-sm-3 col-form-label">Hình ảnh (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="file">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="type" class="col-sm-3 col-form-label">Loại quảng cáo (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control">
+                                                <option selected >Ẩm thực</option>
+                                                <option value="1">Thức uống</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="address" class="col-sm-3 col-form-label">Địa chỉ (<span class="text-danger fw-bold">*</span>)</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="submit" class="btn btn-primary m-auto">Thêm mới</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Tên quảng cáo</th>
+                                <th scope="col">Nội dung</th>
+                                <th scope="col">Nội dung phụ</th>
+                                <th scope="col">Ngày đăng</th>
+                                <th scope="col">Tên cửa hàng</th>
+                                <th scope="col">Loại quảng cáo</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let quangcao of Quangcao" value="quangcao">
+                                <th scope="row ">{{quangcao.idQC}}</th>
+                                <td>{{quangcao.TenQC}}</td>
+                                <td>{{quangcao.NoiDung}}</td>
+                                <td>{{quangcao.NoiDungPhu}}</td>
+                                <td>{{quangcao.NgayDang}}</td>
+                                <td>{{quangcao.TenCuaHang}}</td>
+                                <td>{{quangcao.MaLoaiQC}}</td>
+                                <td><a href="#" data-bs-toggle="modal" data-bs-target="#imgModal">Ảnh</a></td>
+                                <td>{{quangcao.DiaChi}}</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- model edit-->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <form class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Chỉnh sửa quảng cáo</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3 row">
+                                    <label for="title" class="col-sm-3 col-form-label">Tiêu đề quảng cáo (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="Ăn sạch Sài Gòn" disabled class="form-control" id="title">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="content" class="col-sm-3 col-form-label">Nội dung (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="abcxyz" class="form-control" id="content">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="side-content" class="col-sm-3 col-form-label">Nội dụng phụ (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="abcxyz" class="form-control" id="side-content">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="name" class="col-sm-3 col-form-label">Tên cửa hàng (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="0396236359" class="form-control" id="name">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="image" class="col-sm-3 col-form-label">Hình ảnh (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="file">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="type" class="col-sm-3 col-form-label">Loại quảng cáo (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control">
+                                            <option selected >Ẩm thực</option>
+                                            <option value="1">Thức uống</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="address" class="col-sm-3 col-form-label">Địa chỉ (<span class="text-danger fw-bold">*</span>)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="Nam kỳ khởi nghĩa" class="form-control" id="address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+                                <button type="submit" class="btn btn-primary ms-auto">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <!-- Modal Delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <form class="modal-content">
+                            <!-- <div class="modal-header text-center">
+                                <h5 class="modal-title" id="deleteModalLabel"></h5>
+                            </div> -->
+                            <div class="modal-body text-center ">
+                                <p>Bạn có muốn xóa tên</p>
+                                <h6> Ăn sạch Sài Gòn</h6>
+                                <hr class="mb-0">
+                            </div>
+                            <div class="modal-footer border-0">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Không</button>
+                                <button type="submit" class="btn btn-primary ms-auto">Có</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- image view -->
+                <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <img src="https://cardino.com.vn/wp-content/uploads/2018/04/am-thuc-sai-gon.jpg" width="100%" height="100%" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</app-layout>

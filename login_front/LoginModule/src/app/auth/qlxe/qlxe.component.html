@@ -1,0 +1,223 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý xe</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">Thêm +</button>
+                </div>
+
+                <!--Modal add-->
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm Xe</h5>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-9">
+                                            <div class="row p-2">
+                                                <div class="col-3"><label for="formGroupExampleInput" class="form-label fw-bold">Block</label></div>
+                                                <div class="col-3">
+                                                    <select class="w-100 fw-bold" aria-label="Default select example">
+                                                        <option selected>A</option>
+                                                        <option value="1">B</option>
+                                                        <option value="2">X</option>
+                                                        <option value="3">D</option>
+                                                      </select>
+                                                </div>
+                                                <div class="col-3"><label for="formGroupExampleInput" class="form-label fw-bold">Tầng</label></div>
+                                                <div class="col-3">
+                                                    <select class="w-100 fw-bold" aria-label="Default select example">
+                                                        <option selected>1</option>
+                                                        <option value="1">2</option>
+                                                        <option value="2">3</option>
+                                                        <option value="3">4</option>
+                                                      </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Biển số xe(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-9"><input type="text" class="w-100"></div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"> <label for="formGroupExampleInput" class="form-label">Loại Xe(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-9">
+                                            <select class="w-100" aria-label="Default select example">
+                                                <option selected>Xe máy</option>
+                                                <option value="1">xe oto</option>
+                                                <option value="2">xe đạp</option>
+                                                <option value="3">xe ba bánh</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <div class="col-3"><label for="formGroupExampleInput" class="form-label">Phòng(<span style="color: red;">*</span>)</label></div>
+                                        <div class="col-9">
+                                            <select class="w-100" aria-label="Default select example">
+                                                <option selected>AN KHANG_A.05.01</option>
+                                                <option value="1">AN KHANG_A.05.03</option>
+                                                <option value="2">AN KHANG_A.05.02</option>
+                                        
+                                              </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary text-white">Thêm </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input class="" type="text" name="search" id="search">
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Biển số xe</th>
+                                <th scope="col">Loại xe</th>
+                                <th scope="col">Access Code</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let quanlyxe of quanlyxe" value="quanlyxe">
+                                <th scope="row ">1</th>
+                                <td>{{quanlyxe.BienSoXe}}</td>
+                                <td>{{quanlyxe.LoaiXe}}</td>
+                                <td>{{quanlyxe.idCuDan}}</td>
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- modal-edit -->
+                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa</h5>
+                                </div>
+                                <div class="modal-body p-0">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3"></div>
+                                            <div class="col-9">
+                                                <div class="row p-2">
+                                                    <div class="col-3"><label for="formGroupExampleInput" class="form-label fw-bold">Block</label></div>
+                                                    <div class="col-3">
+                                                        <select class="w-100 fw-bold" aria-label="Default select example">
+                                                            <option selected>A</option>
+                                                            <option value="1">B</option>
+                                                            <option value="2">X</option>
+                                                            <option value="3">D</option>
+                                                          </select>
+                                                    </div>
+                                                    <div class="col-3"><label for="formGroupExampleInput" class="form-label fw-bold">Tầng</label></div>
+                                                    <div class="col-3">
+                                                        <select class="w-100 fw-bold" aria-label="Default select example">
+                                                            <option selected>1</option>
+                                                            <option value="1">2</option>
+                                                            <option value="2">3</option>
+                                                            <option value="3">4</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row p-2">
+                                            <div class="col-4"><label for="formGroupExampleInput" class="form-label">Biển số xe(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8"><input type="text" class="w-100"></div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"> <label for="formGroupExampleInput" class="form-label">Loại Xe(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8">
+                                                <select class="w-100" aria-label="Default select example">
+                                                    <option selected>Xe máy</option>
+                                                    <option value="1">xe oto</option>
+                                                    <option value="2">xe đạp</option>
+                                                    <option value="3">xe ba bánh</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-4"><label for="formGroupExampleInput" class="form-label">Phòng(<span style="color: red;">*</span>)</label></div>
+                                            <div class="col-8">
+                                                <select class="w-100" aria-label="Default select example">
+                                                    <option selected>AN KHANG_A.05.01</option>
+                                                    <option value="1">AN KHANG_A.05.03</option>
+                                                    <option value="2">AN KHANG_A.05.02</option>
+                                            
+                                                  </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between p-4">
+                                    <button type="button" class="btn btn-danger  px-5" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="button" class="btn btn-info  px-5">Cập nhật</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal delete -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <div class="modal-body text-center">
+                                    <p>Bạn muốn xóa xe có biển số:</p>
+                                    <h6> 54-Y3 8172</h6>
+
+                                    <hr class="mb-0">
+                                </div>
+                                <div class="p-3 d-flex justify-content-between">
+                                    <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                    <button type="button" class="btn btn-secondary right">Có</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+
+                <a href="#">&raquo;</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</app-layout>

@@ -1,0 +1,234 @@
+<app-layout>
+    <div class="container ">
+        <div class="row">
+            <h3 class="py-2">Quản lý thông báo</h3>
+        </div>
+        <div class="wrap bg-white">
+            <div class="row  py-4 ">
+                <div class="col-4">
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">Thêm +</button>
+                </div>
+                <!-- Modal add -->
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog ">
+                        <div class="modal-content">
+                            <div class="modal-header ">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm thông báo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Tiêu đề:</label>
+                                    <input type="email" class="w-100 fw-bold" id="exampleFormControlInput1" placeholder="thông báo bảo trì tháng 9">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Loại thông báo:</label>
+                                    <select class="w-100 fw-bold" aria-label="Default select example">
+                                    <option selected>bảo trì</option>
+                                    <option value="1">thông báo phí</option>
+                                    <option value="2">Yêu cầu</option>
+                                    <option value="3">khác</option>
+                                  </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
+                                    <textarea class="w-100" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-4"> <label for="exampleFormControlTextarea1" class="form-label">Người nhận:</label></div>
+                                        <div class="col-4">
+                                            <select class="w-100 fw-bold" aria-label="Default select example">
+                                            <option selected >Người nhận</option>
+                                            <option value="2">ALL</option>
+                                            <option value="3">Khác</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="w-100 fw-bold" id="exampleFormControlInput1" placeholder="ANKHANGTD01">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="exampleFormControlTextarea1" class="col-sm-4 form-label">Hình ảnh</label>
+                                    <div class="col-sm-8">
+                                        <input class="w-100 col-sm-8" type="file" id="formFile">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary">Thêm </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+
+                </div>
+                <div class="col-4 text-end">
+                    <label for="search">Tìm kiếm:</label>
+                    <input type="text" name="search" id="search">
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered border-dark text-center table-sm">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Tiêu Đề</th>
+                                <th scope="col">Nội Dung</th>
+                                <th scope="col">Ngày Đăng</th>
+                                <th scope="col">Người nhận</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Mã loại</th>
+                                <th scope="col">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let qlthongbao of qlthongbao" value="qlthongbao">
+                                <th scope="row ">{{qlthongbao.idTT}}</th>
+                                <td>{{qlthongbao.TieuDe}}</td>
+                                <td>{{qlthongbao.NoiDung}}</td>
+                                <td>{{qlthongbao.NgayDang}}</td>
+                                <td>{{qlthongbao.NguoiNhan}}</td>
+                                <td><i class="far fa-images fs-3" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
+                                <td>{{qlthongbao.MaLoai}}</td>
+
+                                <td><a href="" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>/
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- Modal-img -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content bg-transparent border-0">
+                            <div class="modal-body p-0">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false">
+                                    <div class="carousel-indicators indicators-b">
+
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active dot outline-none" aria-current="true" aria-label="Slide 1"></button>
+                                        <button class="dot outline-none" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button class="dot outline-none" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="images/bg2.jpg" class="d-block w-100" height="500" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/bg1.jpg" class="d-block w-100" height="500" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/bg3.jpg" class="d-block w-100" height="500" alt="...">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal-edit -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title " id="exampleModalLabel">Sửa thông báo</h5>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Tiêu đề:</label>
+                                    <input type="email" class="w-100 fw-bold" id="exampleFormControlInput1" placeholder="thông báo bảo trì tháng 9">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Loại thông báo:</label>
+                                    <select class="w-100 fw-bold" aria-label="Default select example">
+                                        <option selected>bảo trì</option>
+                                        <option value="1">thông báo phí</option>
+                                        <option value="2">Yêu cầu</option>
+                                        <option value="3">khác</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
+
+                                    <textarea class="w-100 fw-bold" id="exampleFormControlTextarea1" rows="3" placeholder="thông báo bảo trì tháng 9,..."></textarea>
+                                </div>
+                                <div class="mb-3">
+
+                                    <div class="row">
+                                        <div class="col-3"> <label for="exampleFormControlTextarea1" class="form-label">người nhận:</label></div>
+                                        <div class="col-4">
+                                            <select class="w-100 fw-bold" aria-label="Default select example">
+                                                <option selected >Người nhận</option>
+                                                <option value="2">ALL</option>
+                                                <option value="3">Khác</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="w-100 fw-bold" id="exampleFormControlInput1" placeholder="ANKHANGTD01">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="exampleFormControlTextarea1" class="col-sm-3 form-label">Hinh ẢNH</label>
+                                    <div class="col-sm-9">
+                                        <input class="w-100 col-sm-8" type="file" id="formFile">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center p-3">
+                                <button type="button" class="btn btn-primary">Thêm </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal-delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+
+                            <div class="modal-body text-center">
+
+                                <p>Bạn muốn xóa thông báo:</p>
+
+                                <h6>Thông báo phí tháng</h6>
+
+                                <hr class="mb-0">
+                            </div>
+                            <div class="p-3 d-flex justify-content-between">
+                                <button type="button" class="btn btn-info left" data-bs-dismiss="modal">Không</button>
+                                <button type="button" class="btn btn-secondary right">Có</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a class="active" href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</app-layout>
